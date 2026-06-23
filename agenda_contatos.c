@@ -1,15 +1,20 @@
+//trabalho feito por alunos: giovani, kawan
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 100 // informa o tamanho maximo da agenda, ou seja, a quantidade de contatos que podem ser cadastrados.
+#define MAX 101 // informa o tamanho maximo da agenda, ou seja, a quantidade de contatos que podem ser cadastrados.
 
 // variaveis cadastro de contatos
 struct Contato
-{ // struct e utilizado para definir os campos da ficha de cadastro.
-    char nome[50];
-    char telefone[20];
-    char email[50];
+{ // struct e utilizado para definir os campos 
+    char nome[51]; //define o tamanho maximo de caracteres para cada campo 
+    char telefone[20]; //define o tamanho maximo de caracteres para cada campo 
+    char email[50]; //define o tamanho maximo de caracteres para cada campo 
 };
 
 struct Contato agenda[MAX]; // define o tamanho maximo da agenda como 100 contatos, atrasvez da constante MAX.
@@ -110,7 +115,6 @@ int main(void)
 {
     // variaveis
     int op; // op = opcao do menu.
-
     // menu de opcoes
     do
     {
@@ -147,4 +151,5 @@ int main(void)
     } while (op != 0); // O codigo fica em loop ate o usuario escolher a opcao de sair (0).
 
     return 0;
+
 }
