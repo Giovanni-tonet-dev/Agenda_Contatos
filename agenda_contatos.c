@@ -72,11 +72,12 @@ int main()
         printf("\n=========================");
         printf("\n    MENU DE OPCOES       ");
         printf("\n=========================");
-        printf("\n1. Opcao 1(incluir contato)"); // incluir contato
-        printf("\n2. Opcao 2 (listar contatos)"); // listar contatos
+        printf("\n1. Opcao 1(incluir contato)");              // incluir contato
+        printf("\n2. Opcao 2 (listar contatos)");             // listar contatos
         printf("\n3. Opcao 3 (consultar contato pelo nome)"); // consultar contato pelo nome
-        printf("\n4. Opcao 4 (excluir contato)"); // excluir contato
-        printf("\n5. Sair (ir embora)");    // ir embora
+        printf("\n4. Opcao 4 (excluir contato)");             // excluir contato
+        printf("\n5. Alterar contato");
+        printf("\n6. Sair");
         printf("\n=========================");
         printf("\nEscolha uma opcao: ");
         scanf("%d", &opcao);
@@ -87,7 +88,7 @@ int main()
         case 1:
             printf("\nVoce escolheu  Incluir contato 1");
             printf("\nDigite o nome do contato: ");
-            scanf("%s", agenda[quantidade].nome);   // variavel quantidade é usada para armazenar o número de contatos na agenda
+            scanf("%s", agenda[quantidade].nome); // variavel quantidade é usada para armazenar o número de contatos na agenda
 
             printf("Digite o telefone do contato: ");
             scanf("%s", agenda[quantidade].telefone);
@@ -161,7 +162,39 @@ int main()
 
             break;
 
-        case 5:
+               case 5:
+            printf("\nVoce escolheu Alterar contato");
+
+            {
+                char nomeAlterar[50];
+
+                printf("\nDigite o nome do contato que deseja alterar: ");
+                scanf("%s", nomeAlterar);
+
+                for (int i = 0; i < quantidade; i++)
+                {
+                    if (strcmp(nomeAlterar, agenda[i].nome) == 0)
+                    {
+                        printf("\nContato encontrado!");
+
+                        printf("\nNovo nome: ");
+                        scanf("%s", agenda[i].nome);
+
+                        printf("Novo telefone: ");
+                        scanf("%s", agenda[i].telefone);
+
+                        salvarAgenda();
+
+                        printf("\nContato alterado com sucesso!");
+
+                        break;
+                    }
+                }
+            }
+
+            break;
+
+        case 6:
             printf("\nSaindo do programa...");
             break;
 
@@ -169,7 +202,7 @@ int main()
             printf("\nOpcao invalida! Tente novamente.");
         }
 
-    } while (opcao != 5); // condição de saída do loop
+    } while (opcao != 6); // condição de saída do loop
 
     return 0; // retorna 0 para indicar que o programa terminou com sucesso
 }
